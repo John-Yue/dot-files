@@ -47,8 +47,6 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
     "neovim/nvim-lspconfig"
   }
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-
     -- 自动补全
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
@@ -63,7 +61,6 @@ return require('packer').startup(function(use)
   use "akinsho/bufferline.nvim" -- buffer分割线
   use "lewis6991/gitsigns.nvim" -- 左则git提示
   use 'onsails/lspkind-nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',  -- 文件检索
@@ -74,6 +71,14 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
 
+  -- 安装Coc.nvim
+  use {'neoclide/coc.nvim', branch = 'release'}
+
+  -- 安装markdown file preview plugin
+  use ({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
   if packer_bootstrap then
     require('packer').sync()
   end
