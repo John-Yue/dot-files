@@ -18,36 +18,47 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- use 'folke/tokyonight.nvim' -- 主题
+
+  -- 安装自己的插件
+
+  -- 主题
   use {
     'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim'}
+    requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  use {
-    'nvim-lualine/lualine.nvim',  -- 状态栏
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
-  }
+  use 'norcalli/nvim-colorizer.lua'
+
+  -- 状态栏
+  use 'nvim-lualine/lualine.nvim' -- Statusline
+
+  -- 用ctrl-hjkl来定位窗口
+  use "christoomey/vim-tmux-navigator" 
+
+  -- 文档树
   use {
     'nvim-tree/nvim-tree.lua',  -- 文档树
     requires = {
       'nvim-tree/nvim-web-devicons', -- 文档树图标
     }
   }
-  use "christoomey/vim-tmux-navigator" -- 用ctl-hjkl来定位窗口
+
   use "nvim-treesitter/nvim-treesitter" -- 语法高亮
   use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
+
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
     "neovim/nvim-lspconfig"
   }
-    -- 自动补全
+  
+  -- 自动补全
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
@@ -60,25 +71,17 @@ return require('packer').startup(function(use)
 
   use "akinsho/bufferline.nvim" -- buffer分割线
   use "lewis6991/gitsigns.nvim" -- 左则git提示
-  use 'onsails/lspkind-nvim'
 
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',  -- 文件检索
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-lua/plenary.nvim' -- Commen utilities
-  use 'windwp/nvim-ts-autotag'
-  use 'norcalli/nvim-colorizer.lua'
 
-  -- 安装Coc.nvim
-  use {'neoclide/coc.nvim', branch = 'release'}
 
-  -- 安装markdown file preview plugin
-  use ({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+
+  use 'dinhhuy258/git.nvim' -- For git blame & browse
+  
   if packer_bootstrap then
     require('packer').sync()
   end

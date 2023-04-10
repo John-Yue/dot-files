@@ -1,19 +1,3 @@
-require("plugins.plugins-setup")
-
-require("core.options")
-require("core.keymaps")
-
--- 插件
-require("plugins.lualine")
-require("plugins/nvim-tree")
-require("plugins/treesitter")
-require("plugins/lsp")
-require("plugins/cmp")
-require("plugins/comment")
-require("plugins/autopairs")
-require("plugins/bufferline")
-require("plugins/gitsigns")
-require("plugins/telescope")
-require("plugins/colorizer")
-require("plugins/neosolarized")
-require("plugins/lspkind")
+require('yuechenfei.base')
+require('yuechenfei.maps')
+require('yuechenfei.plugins')

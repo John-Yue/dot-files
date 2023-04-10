@@ -42,13 +42,6 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', ';n',
-  function()
-    builtin.lsp_references({
-      builtin.lsp_references()
-    })
-  end)
-
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
