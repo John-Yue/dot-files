@@ -78,10 +78,15 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use "glepnir/lspsaga.nvim" -- LSP UIs
+  use "onsails/lspkind-nvim" -- vscode-like pictograms
+  use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as  a language server to inject LSP diagnostics, code actions, and more via Lua
 
   use 'dinhhuy258/git.nvim' -- For git blame & browse
-  
   if packer_bootstrap then
     require('packer').sync()
   end
