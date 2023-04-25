@@ -40,3 +40,9 @@
 
 ### 效果链接
 1. [Hack Hyper｜终端预览web页面](https://www.bilibili.com/video/BV1384y1u7rm/)
+
+### 需要添加的功能
+---
+- [ ] React 项目的智能提示功能  
+- [ ] 可以智能提示之前写过的代码
+- [ ] 软连接dot-config/.config/nvim -> ./config/nvim
