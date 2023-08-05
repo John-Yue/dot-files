@@ -49,8 +49,15 @@ return require('packer').startup(function(use)
     }
   }
 
-  use "nvim-treesitter/nvim-treesitter" -- 语法高亮
-  use "p00f/nvim-ts-rainbow"            -- 配合treesitter，不同括号颜色区分
+  -- 语法高亮
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
+  use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
 
   use {
     "williamboman/mason.nvim",
