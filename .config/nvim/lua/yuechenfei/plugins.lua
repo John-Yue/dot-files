@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use "glepnir/lspsaga.nvim"            -- LSP UIs
+  use "nvimdev/lspsaga.nvim"            -- LSP UIs
   use "onsails/lspkind-nvim"            -- vscode-like pictograms
   use "jose-elias-alvarez/null-ls.nvim" -- Use Neovim as  a language server to inject LSP diagnostics, code actions, and more via Lua
 
