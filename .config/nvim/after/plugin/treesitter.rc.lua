@@ -45,6 +45,7 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "fish",
     "markdown",
+    "markdown_inline",
     "python",
     "html",
     "lua",
