@@ -8,6 +8,7 @@ return {
             build = "make",
         },
         "nvim-telescope/telescope-dap.nvim",
+        "nvim-telescope/telescope-file-browser.nvim"
     },
     cmd = { "Telescope" },
     keys = {

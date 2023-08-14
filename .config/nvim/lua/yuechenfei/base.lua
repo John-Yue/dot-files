@@ -41,6 +41,8 @@ opt.scrolloff = 10
 opt.wildoptions = 'pum'
 opt.pumblend = 5
 opt.background = 'dark'
+-- opt.foldenable = true
+-- opt.foldmethod = 'indent'
 
 -- Buffer Settings --
 buf.fileencoding = "utf-8"
