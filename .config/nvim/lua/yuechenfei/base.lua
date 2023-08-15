@@ -1,8 +1,13 @@
+vim.cmd('autocmd!')
+
 local opt = vim.opt
 local buf = vim.b
--- local g = vim.g
+local g = vim.g
 
 -- Global Settings --
+vim.scriptencoding = 'utf-8'
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
 opt.showmode = true
 opt.backspace = { "indent", "eol", "start"}
 opt.tabstop = 2
@@ -50,8 +55,8 @@ buf.fileencoding = "utf-8"
 -- Global Settings --
 -- g.mapleader = " "
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 -- vim.keymap.set("n", "ts", ":tabNext<CR>")
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")

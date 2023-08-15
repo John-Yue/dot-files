@@ -199,4 +199,21 @@ return {
             require "octo".setup()
         end
     },
+    {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            -- require 'nvim-treesitter.configs'.setup {
+            --     autotag = {
+            --         enable = true,
+            --     }
+            -- }
+
+            require('nvim-ts-autotag').setup()
+        end
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    }
 }
