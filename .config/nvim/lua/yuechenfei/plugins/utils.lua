@@ -1,5 +1,6 @@
 return {
     {
+        -- j,k 上下加速翻阅
         "rhysd/accelerated-jk",
         keys = {
             { "j", "<Plug>(accelerated_jk_gj)" },
@@ -24,6 +25,7 @@ return {
         },
     },
     {
+        -- 打开文件跳转到上次关闭的位置
         "ethanholz/nvim-lastplace",
         config = true,
     },
@@ -123,10 +125,34 @@ return {
         event = "VeryLazy",
         config = true,
     },
+    -- {
+    --     "echasnovski/mini.comment",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require('mini.comment').setup {
+    --             custom_commentstring = function()
+    --                 return require('ts_context_commentstring.internal').calculate_commentsting() or vim.bo.commentstring
+    --             end,
+    --         }
+    --     end,
+    -- },
     {
-        "echasnovski/mini.comment",
-        event = "VeryLazy",
-        config = true,
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+        config = function()
+            require('Comment').setup {
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            }
+        end
+    },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        dependencies = {
+            'JoosepAlviste/nvim-ts-context-commentstring',
+        },
     },
     {
         "s1n7ax/nvim-window-picker",

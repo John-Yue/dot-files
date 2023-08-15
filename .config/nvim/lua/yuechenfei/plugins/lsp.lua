@@ -28,7 +28,7 @@ return {
             pyright = {},
             jsonls = {},
             marksman = {},
-            volar = {},
+            -- volar = {},
             dockerls = {},
             docker_compose_language_service = {},
             bashls = {},
@@ -36,7 +36,9 @@ return {
             taplo = {},
             ruff_lsp = {},
             html = {},
-            tsserver = {},
+            tsserver = {
+                detached = false,
+            },
             tailwindcss = {},
             clangd = {},
         }
@@ -76,16 +78,18 @@ return {
 
                 -- Buffer local mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local opts = { buffer = ev.buf }
+                local opts = { buffer = ev.buf, noremap = true, silent = true }
                 -- We need a specific threat for the "term_toggle", it must be a global mapping, not a buffer mapping.
                 vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>",
                     { noremap = true, silent = true })
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'gd', require "telescope.builtin".lsp_definitions, opts)
+                vim.keymap.set('n', 'gl', '<Cmd>Lspsaga show_diagnostic<CR>', opts)
                 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
                 vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
                 vim.keymap.set('n', '<leader>gi', require "telescope.builtin".lsp_implementations, opts)
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                vim.keymap.set('n', '<C-j>', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
                 vim.keymap.set('n', '<leader>da', require "telescope.builtin".diagnostics, opts)
                 vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
                 vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)

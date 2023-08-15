@@ -50,6 +50,8 @@ buf.fileencoding = "utf-8"
 -- Global Settings --
 -- g.mapleader = " "
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- vim.keymap.set("n", "ts", ":tabNext<CR>")
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")
