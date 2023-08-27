@@ -24,8 +24,8 @@ return {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
         keys = {
-            {'<Tab>', '<Cmd>BufferLineCycleNext<CR>'},
-            {'<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>'}
+            { '<Tab>',   '<Cmd>BufferLineCycleNext<CR>' },
+            { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>' }
         },
         opts = {
             options = {
@@ -52,12 +52,12 @@ return {
                         bg = '#073642'
                     }
                 },
-                offsets = {{
+                offsets = { {
                     filetype = 'NvimTree',
                     text = 'File Explorer',
                     highlight = 'Directory',
                     text_align = 'left'
-                }}
+                } }
             }
         }
     },
@@ -108,7 +108,15 @@ return {
                 -- Text object
                 map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
                 map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-            end
+            end,
+            current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+            current_line_blame_opts = {
+                virt_text = true,
+                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                delay = 1000,
+                ignore_whitespace = false,
+            },
+            current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
         }
     },
     {
