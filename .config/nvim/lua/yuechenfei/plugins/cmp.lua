@@ -9,6 +9,8 @@ return {
         "hrsh7th/cmp-nvim-lua",
         {
             "L3MON4D3/LuaSnip",
+            version = '2.*',
+            build = 'make instsall_jsregexp',
             dependencies = { "rafamadriz/friendly-snippets" },
         },
         "saadparwaiz1/cmp_luasnip",

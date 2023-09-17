@@ -99,18 +99,6 @@ return {
         event = "VeryLazy",
         config = true,
     },
-    -- {
-    --     "nvim-neo-tree/neo-tree.nvim",
-    --     keys = {
-    --         { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree" }
-    --     },
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    --         "MunifTanjim/nui.nvim",
-    --     },
-    --     config = true,
-    -- },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -214,14 +202,19 @@ return {
     {
         'akinsho/toggleterm.nvim',
         version = "*",
-        config = true
+        config = function()
+            require('toggleterm').setup({
+                open_mapping = [[<c-\>]]
+            })
+            vim.api.nvim_set_keymap('t', '<ESC>', '<c-\\><c-n>', { noremap = true, silent = true })
+        end
     },
     {
         "simrat39/symbols-outline.nvim",
         lazy = true,
         cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
         keys = {
-            {"<Leader>\\", '<Cmd>SymbolsOutline<CR>'},
+            { "<Leader>\\", '<Cmd>SymbolsOutline<CR>' },
         },
         config = function()
             local opts = {
@@ -241,7 +234,7 @@ return {
                 fold_markers = { "", "" },
                 wrap = false,
                 keymaps = {
-                        -- These keymaps can be a string or a table for multiple keys
+                    -- These keymaps can be a string or a table for multiple keys
                     close = { "<Esc>", "q" },
                     goto_location = "<Cr>",
                     focus_location = "<Tab>",
@@ -294,5 +287,11 @@ return {
     {
         "sindrets/diffview.nvim",
         config = true
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        config = function()
+            vim.fn['mkdp#util#install']()
+        end
     }
 }
