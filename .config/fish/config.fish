@@ -15,7 +15,7 @@ alias la "ls -A"
 alias ll "exa -l"
 alias lla "ll -A"
 alias g git
-command -qv nvim && alias vim nvim
+alias vim nvim
 
 set -gx EDITOR nvim
 
@@ -26,7 +26,5 @@ set --universal nvm_defualt_package yarn np
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
-  source $LOCAL_CONFIG
+    source $LOCAL_CONFIG
 end
-
-
