@@ -1,6 +1,2 @@
--- Speed up plugins --
-vim.loader.enable()
-
-require("yuechenfei.base")
-require("yuechenfei.maps")
-require("yuechenfei.lazy_nvim")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
