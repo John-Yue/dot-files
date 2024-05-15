@@ -20,7 +20,7 @@ alias vim nvim
 set -gx EDITOR nvim
 
 # NodeJS
-set --universal nvm_default_version v18.3.0
+set --universal nvm_default_version v16.20.2
 set --universal nvm_defualt_package yarn np
 
 
