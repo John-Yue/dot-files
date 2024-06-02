@@ -16,6 +16,7 @@ alias ll "exa -l"
 alias lla "ll -A"
 alias g git
 alias vim nvim
+alias python python3
 
 set -gx EDITOR nvim
 
