@@ -65,6 +65,7 @@ return {
   -- 设置动画配置
   {
     "echasnovski/mini.animate",
+    enable = false,
     opts = function()
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
